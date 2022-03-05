@@ -1,17 +1,21 @@
 // Ajout des fichiers d'en-tete
 #include <iostream>
 #include <string>
-#include <time.h>
-#include <stdlib.h>
+#include <random>
 
 int main()
 {
 	// Déclaration des variables :
 	std::string user;
+	int num{ 0 };
 	int userNum{0};
-	srand(time(NULL));
-	int num = rand()%1024;
-	int ess{ 1 };
+	int ess{0};
+
+	// Génération d un nombre aleatoire
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	num = std::generate_canonical<double, 10>(gen) * 1024;
+	
 
 	// Affichage du nom de l'utilisateur + but du jeu
 	std::cout << "Entre ton nom : ";
