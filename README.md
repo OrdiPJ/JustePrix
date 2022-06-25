@@ -1,5 +1,5 @@
 # JustePrix
-Ceci est un version du celebre jeu du juste prix codé en C++. Tout a été codé par moi même, je me suis juste inspiré de la documentation por le système de nombre aléatoire.
+Ceci est un version du celebre jeu du juste prix codé en C++. Tout a été codé par moi même, je me suis juste inspiré de la documentation pour le système de nombre aléatoire.
 
 ## Où télécharger le jeu ?
 Le jeu est disponible en téléchargement [ici](https://github.com/OrdiPJ/JustePrix/releases "Télécharger le jeu")
