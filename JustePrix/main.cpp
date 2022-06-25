@@ -2,11 +2,17 @@
 #include <iostream>
 #include <string>
 #include <random>
+#include "GenerateNummber.h"
+#include "StartGame.h"
+#include "User.h"
 
 int main()
 {
 	// Titre de l'onglet
 	system("TITLE Jeu du Juste Prix");
+
+	GenerateNummber g;
+	StartGame s;
 
 	// Déclaration des variables :
 	std::string user;
@@ -17,36 +23,19 @@ int main()
 	int maxNum{ 0 };
 
 	// Génération d un nombre aleatoire
-	std::random_device rd;
-	std::mt19937 gen(rd());
+	/*std::random_device rd;
+	std::mt19937 gen(rd()); */
 
 
 	// Affichage du nom de l'utilisateur + choix de difficulté
-	std::cout << "Entre ton nom : ";
-	std::getline(std::cin, user);
-	std::cout << "Bonjour " << user << " bienvenue au jeu du juste prix !\nChoisie une difficulte (1,2,3) : ";
-	std::cin >> diff;
+	User* usr;
+	usr = s.Start();
+	user = usr->usrName;
+	diff = usr->diff;
 
-	switch (diff)
-	{
-	case 1:
-		std::cout << "\nTu as choisi la difficulté facile, to but est de trouver le nombre compris entre 0 et 256\n";
-		num = std::generate_canonical<double, 10>(gen) * 256;
-		maxNum = 256;
-		break;
-	case 2:
-		std::cout << "\nTu as choisi la difficulté moyenne, to but est de trouver le nombre compris entre 0 et 512\n";
-		num = std::generate_canonical<double, 10>(gen) * 512;
-		maxNum = 512;
-		break;
-	case 3:
-		std::cout << "\nTu as choisi la difficulté difficile, to but est de trouver le nombre compris entre 0 et 1024\n";
-		num = std::generate_canonical<double, 10>(gen) * 1024;
-		maxNum = 1024;
-		break;
-	default:
-		break;
-	}
+	double* r = g.GenerateNumber(diff);
+	num = r[0];
+	maxNum = r[1];
 
 	// Boucle tant que l'utilisateur n'a pas entrer le bon nombre
 	while (userNum != num)
